@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 200" role="img" aria-label="Don Juan Mexican Cocina">
+  <style>.serif{font-family:'Fraunces','Playfair Display',Georgia,serif;}</style>
+  <g text-anchor="middle">
+    <text x="260" y="42" class="serif" font-size="26" font-weight="600" letter-spacing="6" fill="#C8102E">DAVENPORT · IOWA</text>
+    <text x="260" y="118" class="serif" font-size="92" font-weight="600" fill="#271a12">Don Juan</text>
+    <text x="260" y="166" class="serif" font-size="34" font-style="italic" font-weight="400" letter-spacing="2" fill="#7A2E1D">Mexican Cocina</text>
+    <rect x="150" y="184" width="70" height="5" fill="#C8102E"/>
+    <rect x="225" y="184" width="70" height="5" fill="#7A2E1D"/>
+    <rect x="300" y="184" width="70" height="5" fill="#006847"/>
+  </g>
+</svg>
