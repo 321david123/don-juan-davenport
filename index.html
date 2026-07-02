@@ -115,6 +115,8 @@
         <a href="tel:+15635516341" class="btn btn--red">Order &middot; (563) 551-6341</a>
       </div>
 
+      <button id="langToggle" class="lang-toggle" type="button" aria-label="Language / Idioma" title="English / Español"><span data-l="en">EN</span><span data-l="es">ES</span></button>
+
       <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="overlay">
         <span></span><span></span><span></span>
       </button>
@@ -151,7 +153,7 @@
         <img src="assets/real-logo.jpg" alt="Don Juan Mexican Cocina logo" class="hero__badge" data-reveal width="150" height="150" />
         <p class="hero__eyebrow" data-reveal>Five Points Corner &middot; Davenport, Iowa</p>
         <h1 class="hero__title" data-reveal>Don Juan<br /><span>Mexican Cocina</span></h1>
-        <p class="hero__tagline" data-reveal>Authentic family cocina on the Five Points corner —<br />street tacos, birria and tamales made the way home tastes.</p>
+        <p class="hero__tagline" data-reveal data-i18n="0">Authentic family cocina on the Five Points corner —<br />street tacos, birria and tamales made the way home tastes.</p>
         <div class="hero__cta" data-reveal>
           <a href="#menu" class="btn btn--red btn--lg">View the Menu</a>
           <a href="tel:+15635516341" class="btn btn--ghost btn--lg">Call to Order</a>
@@ -169,16 +171,16 @@
       <div class="story__grid">
         <div class="story__text">
           <p class="kicker" data-reveal>Our Story</p>
-          <h2 class="story__head" data-reveal>
+          <h2 class="story__head" data-reveal data-i18n="1">
             One family, six pairs of hands, <em>one</em> corner kitchen.
           </h2>
-          <p data-reveal>
+          <p data-reveal data-i18n="2">
             Don Juan Mexican Cocina sits on the busy <em>Five Points</em> corner in Davenport's
             North End — in the former Azteca Express space. The restaurant is named
             after owner Guadalupe Bernal's paternal grandfather, and it is a true family business
             through and through.
           </p>
-          <p data-reveal>
+          <p data-reveal data-i18n="3">
             Six members of the Bernal family run it together: Guadalupe; her father <em>Ignacio</em>,
             who spent about thirty years with the Azteca restaurants; her mother Araceli; her sister
             Carolina; and brothers Emilio and Juan. Street tacos, enchiladas, tamales and birria are
@@ -219,7 +221,7 @@
     <section class="sig" id="signatures">
       <div class="sig__intro">
         <p class="kicker" data-reveal>The Signatures</p>
-        <h2 class="section-head" data-reveal>The plates the<br />neighborhood drives for.</h2>
+        <h2 class="section-head" data-reveal data-i18n="4">The plates the<br />neighborhood drives for.</h2>
       </div>
 
       <!-- Row 1 -->
@@ -284,7 +286,7 @@
       <div class="menu__head">
         <p class="kicker" data-reveal>Made Fresh, Made Here</p>
         <h2 class="section-head" data-reveal>The Menu</h2>
-        <p class="menu__note" data-reveal>Family recipes, homemade salsa and street-taco classics.
+        <p class="menu__note" data-reveal data-i18n="5">Family recipes, homemade salsa and street-taco classics.
           Prices change with the market — call <a href="tel:+15635516341" style="color:var(--rojo);font-weight:600;">(563)&nbsp;551-6341</a>
           for today's pricing, daily specials and the full list.</p>
 
@@ -532,7 +534,7 @@
       <div class="visit__grid">
         <div class="visit__info">
           <p class="kicker" data-reveal>Visit Us</p>
-          <h2 class="section-head" data-reveal>Find us on<br />Five Points.</h2>
+          <h2 class="section-head" data-reveal data-i18n="6">Find us on<br />Five Points.</h2>
 
           <div class="visit__block" data-reveal>
             <h3>Address</h3>
@@ -581,8 +583,8 @@
   <footer class="footer">
     <div class="footer__grid">
       <div class="footer__brand">
-        <img src="assets/real-logo.jpg" alt="Don Juan Mexican Cocina" class="footer__logo" width="96" height="96" loading="lazy" />
-        <p class="footer__tag">Authentic family Mexican cocina on Davenport's Five Points corner.<br />Street tacos · Birria · Tamales · House margaritas.</p>
+        <img src="assets/real-logo.jpg" alt="Don Juan Mexican Cocina" class="footer__logo" width="96" height="96" loading="lazy" decoding="async" />
+        <p class="footer__tag" data-i18n="7">Authentic family Mexican cocina on Davenport's Five Points corner.<br />Street tacos · Birria · Tamales · House margaritas.</p>
       </div>
 
       <div class="footer__col">
@@ -629,5 +631,96 @@
 
   <!-- Visibility failsafe -->
   <script>setTimeout(function(){document.querySelectorAll(".reveal,[data-reveal]").forEach(function(e){e.classList.add("is-visible")});document.querySelectorAll("[data-hero-line],.hero__line,.hero__title .line>span").forEach(function(e){e.style.opacity="1";e.style.transform="none";e.style.visibility="visible"})},2200);</script>
+
+  <!-- ===== EN/ES language toggle ===== -->
+  <style id="i18n-style">
+    .lang-toggle{display:inline-flex;align-items:center;border:1.4px solid currentColor;border-radius:999px;overflow:hidden;background:transparent;cursor:pointer;padding:0;margin:0 .55rem 0 0;font-family:inherit;vertical-align:middle;opacity:.82;-webkit-tap-highlight-color:transparent;flex:0 0 auto}
+    .lang-toggle:hover{opacity:1}
+    .lang-toggle span{display:block;padding:.36em .56em;font-size:.68rem;font-weight:800;letter-spacing:.04em;color:currentColor;line-height:1;transition:background .15s,color .15s}
+    .lang-toggle span.on{background:#C8102E;color:#fff}
+    @media(max-width:600px){ .lang-toggle{margin-right:.5rem} .lang-toggle span{padding:.34em .48em;font-size:.66rem} }
+    html[lang="es"] .hours tr.is-now td::after{ content:" \00b7  Abierto ahora" !important; }
+  </style>
+  <script id="i18n-script">
+
+  (function(){
+    var TEXT = {"Story": "Nuestra Historia", "Signatures": "Especialidades", "Menu": "Menú", "Gallery": "Galería", "Visit": "Visítanos", "Order &middot; (563) 551-6341": "Ordena · (563) 551-6341", "Call to Order": "Llama para ordenar", "Get Directions": "Cómo llegar", "Five Points Corner &middot; Davenport, Iowa": "Esquina Five Points · Davenport, Iowa", "View the Menu": "Ver el Menú", "Scroll": "Desliza", "Our Story": "Nuestra Historia", "See the signatures &rarr;": "Ver las especialidades →", "Street tacos, made the way home tastes": "Tacos callejeros, con el sazón de casa", "Google rating": "Calificación en Google", "Guest reviews": "Reseñas de clientes", "Family-owned": "Negocio familiar", "Drive-up": "Ventanilla", "Window for quick orders": "Para ordenar desde tu auto", "The Signatures": "Las Especialidades", "Grilled steak piled onto warm tortillas with nothing but white onion and cilantro — the way street tacos are meant to be. Simple, smoky and made to order.": "Carne asada montada sobre tortillas calientitas, solo con cebolla blanca y cilantro — como deben ser los tacos callejeros. Sencillos, ahumados y hechos al momento.", "Grilled steak and melted cheese pressed in a flour tortilla until golden — best chased with our homemade salsa and a house margarita.": "Carne asada y queso fundido prensados en tortilla de harina hasta quedar dorada — acompáñala con nuestra salsa casera y una margarita de la casa.", "Traditional Mexican-style enchiladas under melted cheese and salsa — one of the family classics that built Don Juan's reputation.": "Enchiladas tradicionales al estilo mexicano bañadas en queso fundido y salsa — uno de los clásicos familiares que hicieron la fama de Don Juan.", "Authentic nachos piled high with cheese, fresh pico and your choice of meat — made for sharing across the table, with homemade salsa on the side.": "Nachos auténticos bien servidos con queso, pico de gallo fresco y la carne de tu elección — hechos para compartir en la mesa, con salsa casera aparte.", "Find them on the menu &rarr;": "Encuéntralos en el menú →", "Made Fresh, Made Here": "Hecho fresco, hecho aquí", "The Menu": "El Menú", "Mains": "Platos fuertes", "Extras": "Extras", "Burritos &amp; Quesadillas": "Burritos y Quesadillas", "Enchiladas &amp; Specialties": "Enchiladas y Especialidades", "House Classics": "Clásicos de la Casa", "Starters &amp; Sides": "Entradas y Complementos", "Sweets &amp; Drinks": "Postres y Bebidas", "Ask": "Consultar", "Favorite": "Favorito", "Signature": "Especialidad", "House": "De la casa", "Grilled steak with white onion and cilantro": "Carne asada con cebolla blanca y cilantro", "Birria with melted cheese, served with consommé": "Birria con queso fundido, servida con su consomé", "Our house signature tacos": "Los tacos insignia de la casa", "Classic crisp hard-shell tacos": "Tacos clásicos de concha dura, bien crujientes", "Large stuffed burrito, loaded": "Burrito grande, bien relleno y completito", "Big fajita quesadilla, your choice of meat": "Quesadilla grande de fajitas, con la carne de tu elección", "Grilled steak and melted cheese": "Carne asada y queso fundido", "A simple, golden classic": "Un clásico sencillo y doradito", "Grilled chicken under melted cheese": "Pollo asado bañado en queso fundido", "Assorted supreme enchiladas": "Enchiladas supremas surtidas", "Traditional Mexican-style enchiladas": "Enchiladas tradicionales al estilo mexicano", "Steak in its own juices with beans": "Carne en su jugo con frijoles", "Crispy fried burrito dinner plate": "Plato de burrito frito, bien crujiente", "House tamales — praised as the best in the area": "Tamales de la casa — dicen que son los mejores del rumbo", "Grilled chicken over rice": "Pollo asado sobre arroz", "Grilled steak over rice": "Carne asada sobre arroz", "Plates served with rice, beans and homemade salsa.": "Los platos se sirven con arroz, frijoles y salsa casera.", "Authentic loaded nachos": "Nachos auténticos bien servidos", "Salsa made fresh in our kitchen": "Salsa hecha al momento en nuestra cocina", "Fried cinnamon-sugar churros": "Churros espolvoreados con azúcar y canela", "Three-milk sponge cake": "Pan esponjoso bañado en tres leches", "Our signature margaritas — frequently praised": "Nuestras margaritas insignia — de las más elogiadas", "Ask your server about today's specials.": "Pregunta a tu mesero por los especiales del día.", "From the Cocina": "Desde la Cocina", "A table full of color.": "Una mesa llena de color.", "Drive-Up Window": "Ventanilla para tu auto", "Order from the car and roll on — quick service when you're short on time.": "Ordena desde el auto y sigue tu camino — servicio rápido cuando traes prisa.", "Dine In &amp; Takeout": "Comedor y para llevar", "Pull up a chair on the Five Points corner, or grab it to go.": "Acerca una silla en la esquina de Five Points, o pídelo para llevar.", "Our signature margaritas — the regulars order them by name.": "Nuestras margaritas insignia — los clientes de siempre las piden por nombre.", "Family-Owned": "Negocio familiar", "Six members of the Bernal family in the kitchen and on the floor.": "Seis miembros de la familia Bernal en la cocina y atendiendo las mesas.", "Homemade Salsa": "Salsa casera", "Made fresh in our kitchen — it comes with the chips, every time.": "Hecha al momento en nuestra cocina — llega con los totopos, siempre.", "Five Points Corner": "Esquina Five Points", "1902 N Division St — easy to find in Davenport's North End.": "1902 N Division St — fácil de encontrar en el North End de Davenport.", "Word of Mouth": "De boca en boca", "What the neighborhood says.": "Lo que dice el vecindario.", "&#9733;&#9733;&#9733;&#9733;&#9733; &nbsp;4.6 on Google &middot; 200+ reviews": "★★★★★  4.6 en Google · más de 200 reseñas", "Google reviewer": "Usuario de Google", "&middot; Sept 2025": "· sept 2025", "Yelp reviewer": "Usuario de Yelp", "Visit Us": "Visítanos", "Address": "Dirección", "Call &amp; Order": "Llama y ordena", "Hours": "Horario", "Sunday": "Domingo", "Monday": "Lunes", "Tuesday": "Martes", "Wednesday": "Miércoles", "Thursday": "Jueves", "Friday": "Viernes", "Saturday": "Sábado", "Explore": "Explora", "Connect": "Contacto", "Directions": "Cómo llegar", "&copy; 2026 Don Juan Mexican Cocina. All Rights Reserved.": "© 2026 Don Juan Mexican Cocina. Todos los derechos reservados.", "Map": "Mapa", "Call": "Llamar"};
+    var ATTR = {"Don Juan Mexican Cocina home": "Inicio de Don Juan Mexican Cocina", "Primary": "Principal", "Open menu": "Abrir menú", "Menu": "Menú", "Close menu": "Cerrar menú", "Mobile": "Móvil", "Scroll down": "Desplázate hacia abajo", "Menu sections": "Secciones del menú", "Previous": "Anterior", "Next": "Siguiente", "5 out of 5 stars": "5 de 5 estrellas", "What we offer": "Lo que ofrecemos", "Quick actions": "Acciones rápidas", "Map to Don Juan Mexican Cocina, 1902 N Division St, Davenport, IA": "Cómo llegar a Don Juan Mexican Cocina, 1902 N Division St, Davenport, IA", "Don Juan Mexican Cocina logo": "Logotipo de Don Juan Mexican Cocina", "Carne asada street tacos with onion and cilantro": "Tacos callejeros de carne asada con cebolla y cilantro", "A plate of street tacos with onion, cilantro and lime": "Un plato de tacos callejeros con cebolla, cilantro y limón", "Golden grilled quesadilla cut into wedges": "Quesadilla dorada a la plancha cortada en triángulos", "Cheesy enchiladas pulled fresh from the dish": "Enchiladas con queso recién servidas", "Loaded nachos with cheese, salsa and fresh toppings": "Nachos preparados con queso, salsa e ingredientes frescos", "Al pastor street tacos with lime on Talavera tile": "Tacos al pastor con limón sobre azulejo de Talavera", "A plate of street tacos with lime": "Un plato de tacos callejeros con limón", "Cheesy enchiladas Mexicanas": "Enchiladas mexicanas con queso", "Loaded authentic nachos": "Nachos auténticos bien servidos", "Golden grilled quesadilla wedges": "Triángulos de quesadilla dorada a la plancha", "A stuffed California-style burrito, sliced": "Burrito estilo California bien relleno, en rebanadas", "An ice-cold house margarita with lime": "Una margarita de la casa bien fría, con limón", "Cinnamon-sugar churros with chocolate": "Churros de azúcar y canela con chocolate"};
+    var HTML = {"0": "Auténtica cocina familiar en la esquina de Five Points —<br />tacos callejeros, birria y tamales con el sazón de casa.", "1": "Una familia, seis pares de manos, <em>una</em> cocina de esquina.", "2": "Don Juan Mexican Cocina está en la concurrida esquina de <em>Five Points</em>, en el North End de Davenport — en el antiguo local de Azteca Express. El restaurante lleva el nombre del abuelo paterno de la propietaria, Guadalupe Bernal, y es un verdadero negocio familiar de principio a fin.", "3": "Seis miembros de la familia Bernal lo sacan adelante juntos: Guadalupe; su papá <em>Ignacio</em>, quien pasó unos treinta años en los restaurantes Azteca; su mamá Araceli; su hermana Carolina; y sus hermanos Emilio y Juan. Tacos callejeros, enchiladas, tamales y birria son sus clásicos — servidos con salsa casera, margaritas de la casa y una ventanilla para ordenar desde el auto cuando traes prisa.", "4": "Los platillos por los que<br />viene todo el vecindario.", "5": "Recetas de familia, salsa casera y clásicos del taco callejero. Los precios cambian con el mercado — llama al <a href=\"tel:+15635516341\" style=\"color:var(--rojo);font-weight:600;\">(563)&nbsp;551-6341</a> para conocer los precios de hoy, los especiales del día y la lista completa.", "6": "Encuéntranos en<br />Five Points.", "7": "Auténtica cocina mexicana familiar en la esquina de Five Points en Davenport.<br />Tacos callejeros · Birria · Tamales · Margaritas de la casa."};
+    var KEY = "donjuan_lang";
+    function dec(s){ try{ var e=document.createElement('textarea'); e.innerHTML=s; return e.value; }catch(_){ return String(s); } }
+    function norm(s){ return dec(String(s)).replace(/\s+/g,' ').trim(); }
+    var T={}, A={};
+    for(var k in TEXT){ if(TEXT.hasOwnProperty(k)){ var kk=norm(k); if(kk) T[kk]=TEXT[k]; } }
+    for(var k2 in ATTR){ if(ATTR.hasOwnProperty(k2)){ var na=norm(k2); if(na) A[na]=ATTR[k2]; } }
+    var lang='en';
+    try{
+      var up=new URLSearchParams(location.search).get('lang');
+      if(up==='es'||up==='en'){ lang=up; localStorage.setItem(KEY,up); }
+      else if(localStorage.getItem(KEY)==='es'){ lang='es'; }
+    }catch(_){ try{ if(localStorage.getItem(KEY)==='es') lang='es'; }catch(e){} }
+    var SKIP={SCRIPT:1,STYLE:1,NOSCRIPT:1,TEXTAREA:1,CODE:1};
+    var tnodes=[], anodes=[], hnodes=[];
+    var seen=(window.WeakSet)?new WeakSet():null;
+    var seenH=(window.WeakSet)?new WeakSet():null;
+    function nkey(v){ return v.replace(/\s+/g,' ').trim(); }
+    function scan(root){
+      if(!root||root.nodeType!==1) return;
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null,false), n;
+      while(n=w.nextNode()){
+        var v=n.nodeValue; if(!v) continue; var key=nkey(v); if(!key) continue;
+        var p=n.parentNode; if(!p||SKIP[p.nodeName]) continue;
+        if(!T.hasOwnProperty(key)) continue;
+        if(seen){ if(seen.has(n)) continue; seen.add(n); }
+        tnodes.push({node:n,en:v,key:key});
+      }
+      var names=['placeholder','aria-label','title','alt'];
+      var els=root.querySelectorAll('[placeholder],[aria-label],[title],[alt]');
+      for(var i=0;i<els.length;i++){ var el=els[i];
+        for(var a=0;a<names.length;a++){ var nm=names[a]; if(!el.hasAttribute(nm)) continue;
+          var val=el.getAttribute(nm); var vk=val?nkey(val):''; if(!vk||!A.hasOwnProperty(vk)) continue;
+          anodes.push({el:el,attr:nm,en:val,key:vk});
+        }
+      }
+      var hs=root.querySelectorAll('[data-i18n]');
+      for(var h=0;h<hs.length;h++){ var he=hs[h];
+        if(seenH){ if(seenH.has(he)) continue; seenH.add(he); }
+        var id=he.getAttribute('data-i18n');
+        if(HTML.hasOwnProperty(id)) hnodes.push({el:he,en:he.innerHTML,k:id});
+      }
+    }
+    function repl(orig,es){ var m=orig.match(/^(\s*)([\s\S]*?)(\s*)$/); return m[1]+es+m[3]; }
+    function apply(){
+      for(var i=0;i<tnodes.length;i++){ var o=tnodes[i];
+        o.node.nodeValue=(lang==='es'&&T[o.key]!=null)?repl(o.en,T[o.key]):o.en; }
+      for(var j=0;j<anodes.length;j++){ var e=anodes[j];
+        e.el.setAttribute(e.attr,(lang==='es'&&A[e.key]!=null)?A[e.key]:e.en); }
+      for(var g=0;g<hnodes.length;g++){ var hn=hnodes[g];
+        var want=(lang==='es'&&HTML[hn.k]!=null)?HTML[hn.k]:hn.en;
+        if(hn.el.innerHTML!==want) hn.el.innerHTML=want; }
+      try{ document.documentElement.setAttribute('lang',lang); }catch(_){}
+      var b=document.getElementById('langToggle');
+      if(b){ var ss=b.querySelectorAll('[data-l]'); for(var q=0;q<ss.length;q++){ ss[q].classList.toggle('on',ss[q].getAttribute('data-l')===lang); } }
+    }
+    function setLang(l){ lang=(l==='es')?'es':'en'; try{localStorage.setItem(KEY,lang);}catch(_){}; apply(); }
+    function init(){
+      scan(document.body); apply();
+      var btn=document.getElementById('langToggle');
+      if(btn){ btn.addEventListener('click',function(ev){
+        var el=ev.target; while(el&&el!==btn&&!(el.getAttribute&&el.getAttribute('data-l'))) el=el.parentNode;
+        var l=(el&&el.getAttribute)?el.getAttribute('data-l'):null;
+        setLang(l?l:(lang==='es'?'en':'es'));
+      }); }
+      if(window.MutationObserver){
+        var pending=false;
+        var mo=new MutationObserver(function(){ if(pending) return; pending=true;
+          setTimeout(function(){ pending=false; var b0=tnodes.length+anodes.length+hnodes.length; scan(document.body); if(tnodes.length+anodes.length+hnodes.length!==b0) apply(); },160); });
+        mo.observe(document.body,{childList:true,subtree:true});
+      } else { setTimeout(function(){ scan(document.body); apply(); },1200); setTimeout(function(){ scan(document.body); apply(); },3000); }
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+  })();
+
+  </script>
 </body>
 </html>

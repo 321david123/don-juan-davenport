@@ -196,6 +196,10 @@ a:focus-visible, button:focus-visible {
 .nav__toggle span { width: 26px; height: 2px; background: var(--paper); transition: transform .4s var(--ease), opacity .3s, background .4s; }
 .nav.is-solid .nav__toggle span { background: var(--ink); }
 
+/* EN/ES language toggle — cream over the hero, ink once the nav turns solid */
+.nav .lang-toggle { color: var(--paper); }
+.nav.is-solid .lang-toggle { color: var(--ink); }
+
 /* =========================================================
    OVERLAY (mobile)
    ========================================================= */
